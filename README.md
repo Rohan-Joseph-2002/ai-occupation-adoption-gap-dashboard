@@ -13,7 +13,6 @@ The repo is structured as a reproducible dashboard project:
 - Python and Streamlit present the implemented interactive dashboard
 - DuckDB SQL builds reproducible dashboard views from derived CSV inputs
 - Python validation scripts compare SQL outputs against R-produced answer-key files from the upstream analysis repo
-- A later Tableau version will use the same derived inputs and analytical views
 - Generated screenshots, exports, and logs stay under `output/`, matching the analysis repo's reproducibility style
 
 This repository does not rebuild the research pipeline. It consumes derived outputs from `ai-occupation-adoption-gap-analysis`.
@@ -70,8 +69,6 @@ The current dashboard uses derived files built from:
    - Executes the SQL files and validates outputs against answer-key CSVs
 7. `app/streamlit_app.py`
    - Runs the Streamlit dashboard entrypoint
-8. `tableau/`
-   - Holds notes for the Tableau companion dashboard that will use the same derived inputs
 
 ## Repository Structure
 
@@ -86,9 +83,6 @@ ai-occupation-adoption-gap-dashboard/
 ├── requirements.txt
 ├── app/
 │   └── streamlit_app.py
-├── docs/
-│   └── images/
-│       └── .gitkeep
 ├── input/
 │   ├── derived_data/
 │   └── reference/
@@ -118,8 +112,6 @@ ai-occupation-adoption-gap-dashboard/
 ├── tests/
 │   ├── test_data_schema.py
 │   └── test_sql_outputs.py
-├── tableau/
-│   └── README.md
 └── src/
     ├── dashboard/
     │   ├── charts.py
@@ -141,7 +133,6 @@ ai-occupation-adoption-gap-dashboard/
 - `input/derived_data/` contains selected dashboard-ready derived extracts copied from the analysis repo.
 - `input/reference/` is scaffold-only unless later documentation assets are needed.
 - `output/screenshots/`, `output/exports/`, and `output/logs/` keep only `.gitkeep` in git. Generated app captures, exports, and Markdown run logs stay local.
-- `docs/images/` is reserved for curated screenshots that should appear in the README or portfolio write-up.
 - Notebook checkpoint folders and Python caches are ignored.
 
 ## Setup
@@ -294,10 +285,6 @@ The lower charts provide two complementary rankings:
 
 Together, the dashboard separates roles where AI use is already visible from roles where the measured capability-use gap is still large.
 
-## Tableau Companion
-
-A Tableau version is planned as a companion dashboard over the same derived inputs. The Tableau notes live in `tableau/` and will be updated with workbook details, screenshots, and a Tableau Public link once that dashboard is built.
-
 ## Current Results Snapshot
 
 On the current public-data run:
@@ -352,4 +339,4 @@ The SQL validation confirms:
 - The dashboard depends on derived outputs from the upstream analysis repo.
 - The occupation sample is limited to the overlap across the public Anthropic, OpenAI, O*NET, and BLS-linked files.
 - Theoretical capability and observed use come from different public releases and should be interpreted as distinct constructs rather than interchangeable measures.
-- The Streamlit app is implemented locally; curated screenshots, live deployment links, and the Tableau Public link will be added as the presentation layer is finalized.
+- The Streamlit app is implemented locally; a live deployment link will be added as the presentation layer is finalized.
