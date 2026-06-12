@@ -1,5 +1,9 @@
 AI Occupation Adoption Gap Dashboard
 
+Copyright (c) 2026 Rohan Joseph
+
+Unless otherwise noted, the original source code, dashboard scripts, SQL files, and test code in this repository are authored by Rohan Joseph and licensed under the Apache License, Version 2.0. See the LICENSE file for the full license text.
+
 This project reuses derived outputs from the AI Occupation Adoption Gap Analysis repository.
 
 Source data attribution should include:
