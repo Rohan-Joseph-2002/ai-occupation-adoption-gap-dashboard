@@ -75,18 +75,18 @@ def main() -> None:
     modeling_df = data["modeling"]
 
     st.title("The AI Adoption Gap: Where the Unrealized Potential Is")
-    st.caption("High capability, low current use: where AI enablement may have the most headroom.")
+    st.caption("High capability, low current use: Where AI enablement may have the most headroom.")
 
     group_options = ["All"] + sorted(modeling_df["major_group_title"].dropna().unique().tolist())
-    selected_group = st.sidebar.selectbox("Group", group_options)
+    selected_group = st.sidebar.selectbox("Major Group", group_options)
     threshold = st.sidebar.slider(
-        "Capability threshold",
+        "Capability Threshold",
         min_value = 0.0,
         max_value = 1.0,
         value = config.capability_threshold,
         step = 0.05,
     )
-    search_text = st.sidebar.text_input("Occupation search").strip().lower()
+    search_text = st.sidebar.text_input("Occupation Search").strip().lower()
 
     filtered_df = modeling_df.copy()
 
@@ -106,10 +106,10 @@ def main() -> None:
 
     kpis = build_kpi_summary(filtered_df)
     metric_columns = st.columns(4)
-    metric_columns[0].metric("Occupations analysed", f"{kpis['n_occupations']:,}")
-    metric_columns[1].metric("Mean observed use", f"{kpis['mean_observed_exposure']:.3f}")
-    metric_columns[2].metric("Mean capability", f"{kpis['mean_theoretical_exposure']:.3f}")
-    metric_columns[3].metric("Mean adoption gap", f"{kpis['mean_adoption_gap']:.3f}")
+    metric_columns[0].metric("Occupations Analysed", f"{kpis['n_occupations']:,}")
+    metric_columns[1].metric("Mean Observed Use", f"{kpis['mean_observed_exposure']:.3f}")
+    metric_columns[2].metric("Mean Theoretical Capability", f"{kpis['mean_theoretical_exposure']:.3f}")
+    metric_columns[3].metric("Mean Adoption Gap", f"{kpis['mean_adoption_gap']:.3f}")
 
     st.plotly_chart(build_capability_use_scatter(filtered_df), width = "stretch")
 
@@ -125,7 +125,7 @@ def main() -> None:
             build_ranked_bar(
                 opportunity_df,
                 x_column = "adoption_gap_absolute",
-                title = "Highest-opportunity roles",
+                title = "Highest-Opportunity Roles",
             ),
             width = "stretch",
         )
@@ -136,7 +136,7 @@ def main() -> None:
             build_ranked_bar(
                 observed_use_df,
                 x_column = "observed_exposure",
-                title = "Where AI is already embedded",
+                title = "Where AI is Already Embedded",
             ),
             width = "stretch",
         )
