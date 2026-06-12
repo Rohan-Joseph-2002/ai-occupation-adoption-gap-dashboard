@@ -2,6 +2,8 @@
 
 Portfolio analytics project for the occupation-level gap between `theoretical AI capability` and `observed AI use`.
 
+Live dashboard: [ai-occupation-adoption-gap-dashboard.streamlit.app](https://ai-occupation-adoption-gap-dashboard.streamlit.app/)
+
 ## Purpose
 
 This repository presents a narrow workforce-analytics question:
@@ -339,4 +341,3 @@ The SQL validation confirms:
 - The dashboard depends on derived outputs from the upstream analysis repo.
 - The occupation sample is limited to the overlap across the public Anthropic, OpenAI, O*NET, and BLS-linked files.
 - Theoretical capability and observed use come from different public releases and should be interpreted as distinct constructs rather than interchangeable measures.
-- The Streamlit app is implemented locally; a live deployment link will be added as the presentation layer is finalized.
