@@ -1,0 +1,16 @@
+occupation_title,major_group_title,observed_exposure,theoretical_exposure,adoption_gap_absolute,underadoption_ratio,annual_mean_wage,total_employment
+Cost Estimators,Business and Financial Operations,0,1,1,1,73740,208950
+"Insurance Appraisers, Auto Damage",Business and Financial Operations,0,1,1,1,68180,11430
+Interior Designers,"Arts, Design, Entertainment, Sports, and Media",0,1,1,1,62570,61970
+Legal Secretaries and Administrative Assistants,Office and Administrative Support,0,1,1,1,52540,155250
+"Pediatricians, General",Healthcare Practitioners and Technical,0,0.9666666666666668,0.9666666666666668,1,198420,33620
+Architectural and Civil Drafters,Architecture and Engineering,0,0.96,0.96,1,60620,101310
+Payroll and Timekeeping Clerks,Office and Administrative Support,0.0487,1,0.9513,0.9513,49560,149290
+Telephone Operators,Office and Administrative Support,0,0.9473684210526316,0.9473684210526316,1,39370,3870
+Actuaries,Computer and Mathematical,0.053900000000000003,1,0.9461,0.9461,125300,23040
+Environmental Engineers,Architecture and Engineering,0.0358,0.9814814814814814,0.9456814814814812,0.9635245283018868,100220,42660
+"Tax Examiners and Collectors, and Revenue Agents",Business and Financial Operations,0.0275,0.967741935483871,0.940241935483871,0.9715833333333334,63200,52270
+Insurance Underwriters,Business and Financial Operations,0.0625,1,0.9375,0.9375,79940,107690
+Animal Scientists,"Life, Physical, and Social Science",0,0.9375,0.9375,1,80390,2790
+Mechanical Drafters,Architecture and Engineering,0,0.9310344827586208,0.9310344827586208,1,62650,47760
+Soil and Plant Scientists,"Life, Physical, and Social Science",0.0513,0.9782608695652174,0.9269608695652174,0.94756,76290,15610

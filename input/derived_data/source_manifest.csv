@@ -1,0 +1,6 @@
+source_key,download_url,local_path,file_size_bytes
+anthropic_job_exposure,https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/labor_market_impacts/job_exposure.csv,/Volumes/Rohan WD/UBC/technical-projects/ai-occupation-adoption-gap-analysis/input/public_data/job_exposure.csv,37176
+anthropic_task_penetration,https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/labor_market_impacts/task_penetration.csv,/Volumes/Rohan WD/UBC/technical-projects/ai-occupation-adoption-gap-analysis/input/public_data/task_penetration.csv,1889822
+gpts_are_gpts_occ_level,https://raw.githubusercontent.com/openai/GPTs-are-GPTs/main/data/occ_level.csv,/Volumes/Rohan WD/UBC/technical-projects/ai-occupation-adoption-gap-analysis/input/public_data/gpts_are_gpts_occ_level.csv,126022
+occupations_onet_bls_matched,https://raw.githubusercontent.com/openai/GPTs-are-GPTs/main/data/occupations_onet_bls_matched.csv,/Volumes/Rohan WD/UBC/technical-projects/ai-occupation-adoption-gap-analysis/input/public_data/occupations_onet_bls_matched.csv,259505
+onet_database_zip,https://www.onetcenter.org/dl_files/database/db_30_2_text.zip,/Volumes/Rohan WD/UBC/technical-projects/ai-occupation-adoption-gap-analysis/input/public_data/onet_db_30_2_text.zip,13444123

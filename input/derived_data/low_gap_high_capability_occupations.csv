@@ -1,0 +1,16 @@
+occupation_title,major_group_title,observed_exposure,theoretical_exposure,adoption_gap_absolute,underadoption_ratio,annual_mean_wage,total_employment
+Computer Programmers,Computer and Mathematical,0.7451,1,0.2549,0.2549,96650,152610
+Data Entry Keyers,Office and Administrative Support,0.6707,0.9285714285714284,0.2578714285714284,0.2777076923076922,35940,147170
+Retail Salespersons,Sales and Related,0.3222,0.6052631578947368,0.28306315789473685,0.46766956521739134,31920,3693490
+Medical Transcriptionists,Healthcare Support,0.6365,0.9285714285714284,0.2920714285714284,0.31453846153846143,34220,55830
+Customer Service Representatives,Office and Administrative Support,0.7011,1,0.29890000000000005,0.29890000000000005,39070,2787070
+Computer User Support Specialists,Computer and Mathematical,0.4685,0.7777777777777777,0.30927777777777765,0.3976428571428571,57650,654310
+"Middle School Teachers, Except Special and Career/Technical Education",Educational Instruction and Library,0.2972,0.6231884057971014,0.3259884057971014,0.5230976744186047,66880,592000
+Chemical Technicians,"Life, Physical, and Social Science",0.3148,0.6428571428571428,0.32805714285714277,0.510311111111111,55040,57690
+"Office Clerks, General",Office and Administrative Support,0.4504,0.7878787878787878,0.3374787878787878,0.42833846153846145,38990,2578180
+"Secondary School Teachers, Except Special and Career/Technical Education",Educational Instruction and Library,0.2901,0.6349206349206349,0.34482063492063486,0.5430925,69530,1020240
+Market Research Analysts and Marketing Specialists,Business and Financial Operations,0.6483,1,0.3517,0.3517,76080,727540
+"Mathematical Science Teachers, Postsecondary",Educational Instruction and Library,0.4305,0.7837837837837838,0.3532837837837838,0.45074137931034486,87980,44140
+"Switchboard Operators, Including Answering Service",Office and Administrative Support,0.3863,0.7419354838709677,0.3556354838709678,0.47933478260869566,34590,48190
+"Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",Sales and Related,0.6279,1,0.3721,0.3721,72390,1242490
+"Special Education Teachers, Middle School",Educational Instruction and Library,0.134,0.5324675324675325,0.3984675324675325,0.7483414634146341,68860,79070

@@ -1,0 +1,9 @@
+AI Occupation Adoption Gap Dashboard
+
+This project reuses derived outputs from the AI Occupation Adoption Gap Analysis repository.
+
+Source data attribution should include:
+- Anthropic Economic Index labor-market release for observed AI use.
+- OpenAI GPTs-are-GPTs occupation-level release for theoretical capability.
+- OpenAI-linked BLS occupation controls.
+- O*NET Database content, used under CC BY 4.0 terms.

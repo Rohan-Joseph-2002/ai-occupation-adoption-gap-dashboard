@@ -1,0 +1,19 @@
+category,description,source,variable_name,component_descriptors
+identifier,Six-digit occupation code used to merge the public source files.,Anthropic / OpenAI / O*NET / BLS,occ_code,
+identifier,Occupation title used for interpretation and presentation.,"Anthropic job exposure file, with OpenAI-linked BLS fallback",occupation_title,
+identifier,Two-digit SOC major-group code derived from the detailed occupation code.,Derived from occ_code,major_group_code,
+identifier,Human-readable major occupation group label.,Derived from occ_code using SOC major-group labels,major_group_title,
+outcome_input,Observed occupation-level AI use from Anthropic's labor-market exposure release.,Anthropic job exposure file,observed_exposure,
+outcome_input,Theoretical occupation-level AI capability measure from the GPTs-are-GPTs occupation release.,OpenAI GPTs-are-GPTs occupation file,theoretical_exposure,
+outcome_input,Human-annotated theoretical exposure measure from the GPTs-are-GPTs occupation release.,OpenAI GPTs-are-GPTs occupation file,human_theoretical_exposure,
+derived_outcome,Absolute gap between theoretical exposure and observed exposure.,Derived: theoretical_exposure - observed_exposure,adoption_gap_absolute,
+derived_outcome,Observed exposure divided by theoretical exposure.,Derived: observed_exposure / theoretical_exposure,observed_to_theoretical_ratio,
+derived_outcome,Relative under-adoption measure equal to one minus the observed-to-theoretical ratio.,Derived: 1 - observed_to_theoretical_ratio,underadoption_ratio,
+control,Occupation-level total employment count.,OpenAI-linked BLS occupation file,total_employment,
+control,Occupation-level annual mean wage.,OpenAI-linked BLS occupation file,annual_mean_wage,
+control,O*NET job-zone score summarizing training and preparation requirements.,O*NET Job Zones table,job_zone,Job Zone
+constructed_index,Mean of selected O*NET descriptors capturing information-processing and digital task intensity.,O*NET Work Activities and Work Context tables,digital_information_index,Working with Computers; Analyzing Data or Information; Processing Information; Documenting/Recording Information; Interpreting the Meaning of Information for Others; Getting Information
+constructed_index,Mean of selected O*NET descriptors capturing interpersonal and face-to-face work intensity.,O*NET Work Context table,interpersonal_index,Contact With Others; Face-to-Face Discussions with Individuals and Within Teams; Deal With External Customers or the Public in General; Physical Proximity
+constructed_index,Mean of selected O*NET descriptors capturing physical and outdoor work intensity.,O*NET Work Activities and Work Context tables,physical_index,"Handling and Moving Objects; Performing General Physical Activities; Spend Time Standing; Spend Time Walking or Running; Outdoors, Exposed to All Weather Conditions"
+constructed_index,Mean of selected O*NET descriptors capturing decision authority and responsibility.,O*NET Work Context table,decision_index,Frequency of Decision Making; Freedom to Make Decisions; Impact of Decisions on Co-workers or Company Results
+constructed_index,Mean of selected O*NET descriptors capturing exactness and standards-compliance demands.,O*NET Work Activities and Work Context tables,compliance_index,Importance of Being Exact or Accurate; Evaluating Information to Determine Compliance with Standards

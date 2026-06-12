@@ -1,0 +1,8 @@
+[project]
+name = "ai-occupation-adoption-gap-dashboard"
+version = "0.1.0"
+description = "Portfolio dashboard and SQL layer for occupation-level AI adoption-gap analysis."
+requires-python = ">=3.9.6"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
