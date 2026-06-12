@@ -1,6 +1,6 @@
 # AI Occupation Adoption Gap Dashboard
 
-Portfolio dashboard and SQL layer for the occupation-level gap between `theoretical AI capability` and `observed AI use`.
+Portfolio analytics project for the occupation-level gap between `theoretical AI capability` and `observed AI use`.
 
 ## Purpose
 
@@ -8,12 +8,13 @@ This repository presents a narrow workforce-analytics question:
 
 `Which occupations have high theoretical AI capability but low observed AI use?`
 
-The repo is structured as a dashboard-first project:
+The repo is structured as a reproducible dashboard project:
 
-- Python and Streamlit present the occupation-level dashboard
-- DuckDB SQL reproduces the key dashboard views from derived CSV inputs
+- Python and Streamlit present the implemented interactive dashboard
+- DuckDB SQL builds reproducible dashboard views from derived CSV inputs
 - Python validation scripts compare SQL outputs against R-produced answer-key files from the upstream analysis repo
-- The scaffold keeps generated screenshots, exports, and logs under `output/`, matching the analysis repo's reproducibility style
+- A later Tableau version will use the same derived inputs and analytical views
+- Generated screenshots, exports, and logs stay under `output/`, matching the analysis repo's reproducibility style
 
 This repository does not rebuild the research pipeline. It consumes derived outputs from `ai-occupation-adoption-gap-analysis`.
 
@@ -68,7 +69,9 @@ The current dashboard uses derived files built from:
 6. `scripts/002_validate_sql.py`
    - Executes the SQL files and validates outputs against answer-key CSVs
 7. `app/streamlit_app.py`
-   - Runs the dashboard entrypoint
+   - Runs the Streamlit dashboard entrypoint
+8. `tableau/`
+   - Holds notes for the Tableau companion dashboard that will use the same derived inputs
 
 ## Repository Structure
 
@@ -83,6 +86,9 @@ ai-occupation-adoption-gap-dashboard/
 ├── requirements.txt
 ├── app/
 │   └── streamlit_app.py
+├── docs/
+│   └── images/
+│       └── .gitkeep
 ├── input/
 │   ├── derived_data/
 │   └── reference/
@@ -112,6 +118,8 @@ ai-occupation-adoption-gap-dashboard/
 ├── tests/
 │   ├── test_data_schema.py
 │   └── test_sql_outputs.py
+├── tableau/
+│   └── README.md
 └── src/
     ├── dashboard/
     │   ├── charts.py
@@ -133,6 +141,7 @@ ai-occupation-adoption-gap-dashboard/
 - `input/derived_data/` contains selected dashboard-ready derived extracts copied from the analysis repo.
 - `input/reference/` is scaffold-only unless later documentation assets are needed.
 - `output/screenshots/`, `output/exports/`, and `output/logs/` keep only `.gitkeep` in git. Generated app captures, exports, and Markdown run logs stay local.
+- `docs/images/` is reserved for curated screenshots that should appear in the README or portfolio write-up.
 - Notebook checkpoint folders and Python caches are ignored.
 
 ## Setup
@@ -244,19 +253,50 @@ Main dashboard input files:
 
 ## Current SQL Outputs
 
-SQL files map to dashboard views:
+SQL files map to dashboard views and keep the analytical logic inspectable:
 
-- `sql/01_kpis.sql`: headline KPI band
-- `sql/02_group_means.sql`: major-group dumbbell chart data
-- `sql/03_opportunity_rank.sql`: high-capability, high-gap role ranking
-- `sql/04_gap_bands.sql`: gap quartiles and plain-language bands
-- `sql/05_top_observed_use.sql`: occupations where observed AI use is already highest
+| SQL file | Dashboard view | Query pattern |
+| --- | --- | --- |
+| `sql/00_load.sql` | DuckDB input tables | CSV loading into reusable tables |
+| `sql/01_kpis.sql` | Headline KPI band | Aggregate summary metrics |
+| `sql/02_group_means.sql` | Group-level exposure and gap comparison | Grouped means by SOC major group |
+| `sql/03_opportunity_rank.sql` | High-capability, high-gap role ranking | CTE, ordered ranking, within-group window rank |
+| `sql/04_gap_bands.sql` | Adoption-gap quartiles and labels | `NTILE` quartiles and `CASE` banding |
+| `sql/05_top_observed_use.sql` | Occupations where AI use is already highest | Ordered top-N query with tie-breaking |
 
 `scripts/002_validate_sql.py` validates SQL outputs against:
 
 - `input/derived_data/major_group_summary.csv`
 - `input/derived_data/top_gap_occupations.csv`
 - `input/derived_data/top_observed_use_occupations.csv`
+
+The gap-band query is validated against independently computed pandas output for quartile assignment, band labels, and adoption-gap values.
+
+## Streamlit Dashboard
+
+The Streamlit app turns the modeling dataset into an interactive occupation-level view.
+
+Sidebar controls let the user filter by occupation group, minimum theoretical capability, and occupation title search. Those filters update the KPI cards, scatter plot, and ranked bar charts together.
+
+The headline cards summarize the filtered occupations:
+
+- Occupations analysed
+- Mean observed AI use
+- Mean theoretical AI capability
+- Mean adoption gap
+
+The scatter plot places theoretical AI capability on the x-axis and observed AI use on the y-axis. Each point is an occupation, colored by group. The diagonal parity line marks where observed use would equal theoretical capability; occupations below that line have more apparent unrealized AI headroom.
+
+The lower charts provide two complementary rankings:
+
+- `Highest-opportunity roles`: high-capability occupations with the largest adoption gaps.
+- `Where AI is already embedded`: occupations with the highest observed AI use.
+
+Together, the dashboard separates roles where AI use is already visible from roles where the measured capability-use gap is still large.
+
+## Tableau Companion
+
+A Tableau version is planned as a companion dashboard over the same derived inputs. The Tableau notes live in `tableau/` and will be updated with workbook details, screenshots, and a Tableau Public link once that dashboard is built.
 
 ## Current Results Snapshot
 
@@ -303,7 +343,7 @@ The SQL validation confirms:
 - KPI query matches the modeling dataset
 - Major-group means match `major_group_summary.csv`
 - Opportunity ranking matches `top_gap_occupations.csv`
-- Gap-band query returns the full modeling sample
+- Gap-band query matches expected quartiles, labels, and gap values
 - Observed-use ranking matches `top_observed_use_occupations.csv`
 
 ## Limitations
@@ -312,4 +352,4 @@ The SQL validation confirms:
 - The dashboard depends on derived outputs from the upstream analysis repo.
 - The occupation sample is limited to the overlap across the public Anthropic, OpenAI, O*NET, and BLS-linked files.
 - Theoretical capability and observed use come from different public releases and should be interpreted as distinct constructs rather than interchangeable measures.
-- The current Streamlit app is a working scaffold; visual polish, screenshots, live deployment links, and Tableau Public links should be added after the core dashboard views are finalized.
+- The Streamlit app is implemented locally; curated screenshots, live deployment links, and the Tableau Public link will be added as the presentation layer is finalized.
