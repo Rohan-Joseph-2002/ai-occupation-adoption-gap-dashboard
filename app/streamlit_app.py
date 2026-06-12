@@ -111,7 +111,7 @@ def main() -> None:
     metric_columns[2].metric("Mean Theoretical Capability", f"{kpis['mean_theoretical_exposure']:.3f}")
     metric_columns[3].metric("Mean Adoption Gap", f"{kpis['mean_adoption_gap']:.3f}")
 
-    st.plotly_chart(build_capability_use_scatter(filtered_df), width = "stretch")
+    st.plotly_chart(build_capability_use_scatter(filtered_df), use_container_width = True)
 
     left_column, right_column = st.columns(2)
 
@@ -127,7 +127,7 @@ def main() -> None:
                 x_column = "adoption_gap_absolute",
                 title = "Highest-Opportunity Roles",
             ),
-            width = "stretch",
+            use_container_width = True,
         )
 
     with right_column:
@@ -138,7 +138,7 @@ def main() -> None:
                 x_column = "observed_exposure",
                 title = "Where AI is Already Embedded",
             ),
-            width = "stretch",
+            use_container_width = True,
         )
 
 
